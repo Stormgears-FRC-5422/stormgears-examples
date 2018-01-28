@@ -1,0 +1,30 @@
+#!/bin/bash
+
+export JAVA_HOME=/usr/stormgears/jdk1.8.0_161
+export PATH=$JAVA_HOME/bin:$PATH
+export OPENCV_HOME=/usr/stormgears/opencv-3.1.0
+export OPENCV_JAR=/usr/stormgears/wpilib/java/current/lib/opencv.jar
+export OPENCV_LIB=$OPENCV_HOME/share/OpenCV/java
+
+targ=$1
+
+argstring="gear GRIP/gearContoursReport http://localhost:8080/mjpg/video.mjpg localhost"
+
+if [ "x$targ" == "xcam1" ]; then
+  argstring="gear GRIP/gearContoursReport http://cam1/mjpg/video.mjpg roborio"
+fi
+if [ "x$targ" == "xcam2" ]; then
+  argstring="shooter GRIP/shooterContoursReport http://cam2/mjpg/video.mjpg roborio"
+fi
+
+CLASSPATH=/usr/stormgears/wpilib/java/current/lib/NetworkTables.jar
+CLASSPATH+=:/usr/stormgears/wpilib/java/current/lib/opencv.jar
+CLASSPATH+=:/usr/stormgears/wpilib/java/current/lib/WPILib.jar
+
+echo $(which java)
+
+java -Djava.library.path=/usr/lib:/usr/stormgears/opencv-3.1.0/share/OpenCV/java \
+  -Dfile.encoding=UTF-8 \
+  -classpath /usr/stormgears/examples/steamworks-vision/Steamworks-vision.jar:$CLASSPATH \
+  org.usfirst.frc.team5422.pivision \
+  $argstring
