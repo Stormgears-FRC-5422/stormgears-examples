@@ -1,0 +1,15 @@
+Source: stormgears-examples
+Section: devel
+Priority: optional
+Maintainer: Mark Smith <wmsmith@gmail.com>
+Build-Depends: debhelper (>=9), stormgears-jdk, stormgears-opencv, stormgears-wpilib
+Standards-Version: 3.9.6
+Homepage: https://github.com/Stormgears-5422-FRC/stormgears-examples
+#Vcs-Git: git://anonscm.debian.org/collab-maint/stormgears-examples.git
+#Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/stormgears-examples.git
+
+Package: stormgears-examples
+Architecture: any
+Depends: ${misc:Depends}, stormgears-jdk, stormgears-opencv, stormgears-wpilib, mjutil
+Description: Stormgears 5422 example data and applications
+ Stormgears 5422 example data and applications

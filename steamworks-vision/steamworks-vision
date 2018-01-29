@@ -25,6 +25,6 @@ echo $(which java)
 
 java -Djava.library.path=/usr/lib:/usr/stormgears/opencv-3.1.0/share/OpenCV/java \
   -Dfile.encoding=UTF-8 \
-  -classpath /usr/stormgears/examples/steamworks-vision/Steamworks-vision.jar:$CLASSPATH \
+  -classpath /usr/stormgears/examples/vision/Steamworks-vision.jar:$CLASSPATH \
   org.usfirst.frc.team5422.pivision \
   $argstring
